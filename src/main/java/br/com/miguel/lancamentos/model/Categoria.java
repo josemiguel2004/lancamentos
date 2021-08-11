@@ -6,4 +6,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "categoria")
 public class Categoria {
+
+    private Long codigo;
 }
