@@ -14,7 +14,9 @@ public class Cidade {
     private String nome;
 
 
-    private Long codigo_estado;
+    @ManyToOne
+    @JoinColumn(name="codigo_estado")
+    private Estado estado;
 
     public Long getCodigo() {
         return codigo;
@@ -32,12 +34,12 @@ public class Cidade {
         this.nome = nome;
     }
 
-    public Long getCodigo_estado() {
-        return codigo_estado;
+    public Estado getEstado() {
+        return estado;
     }
 
-    public void setCodigo_estado(Long codigo_estado) {
-        this.codigo_estado = codigo_estado;
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     @Override
