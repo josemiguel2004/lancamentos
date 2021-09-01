@@ -1,5 +1,7 @@
 package br.com.miguel.lancamentos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -12,7 +14,6 @@ public class Cidade {
     private Long codigo;
 
     private String nome;
-
 
     @ManyToOne
     @JoinColumn(name="codigo_estado")
