@@ -23,9 +23,7 @@ public class Pessoa {
 
     private String cep;
 
-    private String cidade;
-
-    private String estado;
+    private Cidade cidade;
 
     private Boolean ativo;
 
@@ -84,22 +82,6 @@ public class Pessoa {
 
     public void setCep(String cep) {
         this.cep = cep;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
     public Boolean getAtivo() {

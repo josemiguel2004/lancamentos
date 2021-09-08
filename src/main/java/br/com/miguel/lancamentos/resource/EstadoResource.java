@@ -17,6 +17,6 @@ public class EstadoResource {
     @Autowired
     private EstadoRepository estadoRepository;
 
-    @GetMapping()
+    @GetMapping("/todas")
     public List<Estado> listarTodosEstados(){return estadoRepository.findAll(Sort.by("nome"));}
 }

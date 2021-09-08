@@ -1,5 +1,7 @@
 package br.com.miguel.lancamentos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,7 @@ public class Estado {
 
     private String nome;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "estado")
     private List<Cidade> cidades = new ArrayList<>();
 

@@ -17,6 +17,6 @@ public class CidadeResource {
     @Autowired
     private CidadeRepository cidadeRepository;
 
-    @GetMapping()
+    @GetMapping("/todas")
     public List<Cidade> listarTodasCidades(){return cidadeRepository.findAll(Sort.by("nome"));}
 }
