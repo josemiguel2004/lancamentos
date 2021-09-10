@@ -23,6 +23,8 @@ public class Pessoa {
 
     private String cep;
 
+    @ManyToOne
+    @JoinColumn(name = "codigo_cidade")
     private Cidade cidade;
 
     private Boolean ativo;
@@ -90,6 +92,14 @@ public class Pessoa {
 
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
     @Override

@@ -3,6 +3,8 @@ package br.com.miguel.lancamentos.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +20,10 @@ public class Cidade {
     @ManyToOne
     @JoinColumn(name="codigo_estado")
     private Estado estado;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "cidade")
+    private List<Pessoa> pessoas = new ArrayList<>();
 
     public Long getCodigo() {
         return codigo;
@@ -41,6 +47,14 @@ public class Cidade {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public List<Pessoa> getPessoas() {
+        return pessoas;
+    }
+
+    public void setPessoas(List<Pessoa> pessoas) {
+        this.pessoas = pessoas;
     }
 
     @Override
