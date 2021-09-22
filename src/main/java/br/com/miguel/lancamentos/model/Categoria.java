@@ -1,6 +1,10 @@
 package br.com.miguel.lancamentos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +16,10 @@ public class Categoria {
     private Long codigo;
 
     private String nome;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "categoria")
+    private List<Lancamento> lancamentos = new ArrayList<>();
 
 
     public Long getCodigo() {
