@@ -38,6 +38,14 @@ public class Categoria {
         this.nome = nome;
     }
 
+    public List<Lancamento> getLancamentos() {
+        return lancamentos;
+    }
+
+    public void setLancamentos(List<Lancamento> lancamentos) {
+        this.lancamentos = lancamentos;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

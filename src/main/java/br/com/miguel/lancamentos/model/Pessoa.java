@@ -1,6 +1,10 @@
 package br.com.miguel.lancamentos.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -28,6 +32,10 @@ public class Pessoa {
     private Cidade cidade;
 
     private Boolean ativo;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "pessoa")
+    private List<Lancamento> lancamentos_pessoa = new ArrayList<>();
 
 
     public Long getCodigo() {
@@ -100,6 +108,14 @@ public class Pessoa {
 
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
+    }
+
+    public List<Lancamento> getLancamentos_pessoa() {
+        return lancamentos_pessoa;
+    }
+
+    public void setLancamentos_pessoa(List<Lancamento> lancamentos_pessoa) {
+        this.lancamentos_pessoa = lancamentos_pessoa;
     }
 
     @Override
