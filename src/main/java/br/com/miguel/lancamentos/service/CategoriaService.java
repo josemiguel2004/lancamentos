@@ -13,6 +13,10 @@ public class CategoriaService {
     @Autowired
 private CategoriaRepository categoriaRepository;
 
+    public Categoria salvar(Categoria categoria){
+        return categoriaRepository.save(categoria);
+    }
+
     public Categoria buscarCategoriaPorId(Long id){
         Optional<Categoria> categoriaSalva = categoriaRepository.findById(id);
 
