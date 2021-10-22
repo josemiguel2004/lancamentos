@@ -13,6 +13,8 @@ public class CidadeService {
     @Autowired
     private CidadeRepository cidadeRepository;
 
+    public Cidade salvar(Cidade cidade){return cidadeRepository.save(cidade); }
+
     public Cidade buscarCidadePorId (Long id){
         Optional<Cidade> cidadeSalva = cidadeRepository.findById(id);
 

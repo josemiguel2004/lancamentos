@@ -14,6 +14,8 @@ public class EstadoService {
     @Autowired
     private EstadoRepository estadoRepository;
 
+    public Estado salvar(Estado estado){return estadoRepository.save(estado); }
+
     public Estado buscarEstadoPorId (Long id){
         Optional<Estado> estadoSalvo = estadoRepository.findById(id);
 

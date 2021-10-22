@@ -13,6 +13,8 @@ public class PessoaService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    public Pessoa salvar(Pessoa pessoa){return pessoaRepository.save(pessoa);}
+
     public Pessoa buscarPessoaPorId (Long id){
         Optional<Pessoa> pessoaSalva = pessoaRepository.findById(id);
 
