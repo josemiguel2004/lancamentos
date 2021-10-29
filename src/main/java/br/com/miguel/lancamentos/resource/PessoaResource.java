@@ -38,4 +38,10 @@ public class PessoaResource {
         return ResponseEntity.status(HttpStatus.CREATED).body(pessoaSalva);
     }
 
+    @DeleteMapping("/{id}")
+    public void remover(@PathVariable Long id){
+        pessoaRepository.deleteById(id);
+
+    }
+
 }

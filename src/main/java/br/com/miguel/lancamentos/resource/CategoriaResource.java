@@ -3,6 +3,7 @@ package br.com.miguel.lancamentos.resource;
 import br.com.miguel.lancamentos.model.Categoria;
 import br.com.miguel.lancamentos.repository.CategoriaRepository;
 import br.com.miguel.lancamentos.service.CategoriaService;
+import org.hibernate.dialect.Cache71Dialect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Sort;
@@ -43,5 +44,18 @@ public class CategoriaResource {
     public ResponseEntity<Categoria> criar(@RequestBody Categoria categoria, HttpServletResponse response){
         Categoria categoriaSalva = categoriaService.salvar(categoria);
         return ResponseEntity.status(HttpStatus.CREATED).body(categoriaSalva);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void remover(@PathVariable Long id){
+        categoriaRepository.deleteById(id);
+    }
+
+
+    public ResponseEntity<Categoria> atualizar(@PathVariable Long id, @RequestBody Categoria categoria ){
+        Categoria categoriaSalva = categoriaService.atualizar(id, categoria);
+
+        return ResponseEntity.ok(categoriaSalva);
     }
 }

@@ -38,4 +38,10 @@ public class EstadoResource {
         Estado estadoSalvo= estadoService.salvar(estado);
         return ResponseEntity.status(HttpStatus.CREATED).body(estadoSalvo);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void remover(@PathVariable Long id){
+        estadoRepository.deleteById(id);
+    }
 }
