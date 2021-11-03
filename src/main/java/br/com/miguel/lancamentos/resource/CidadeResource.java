@@ -45,4 +45,9 @@ public class CidadeResource {
         cidadeRepository.deleteById(id);
 
     }
+
+    public ResponseEntity<Cidade> atualizar(@PathVariable Long id, @RequestBody Cidade cidade){
+        Cidade cidadeSalva = cidadeService.atualizar(id, cidade);
+         return ResponseEntity.ok(cidadeSalva);
+    }
 }

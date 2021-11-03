@@ -26,7 +26,7 @@ public class LancamentoResource {
 
     @GetMapping("/todos")
     public List<Lancamento> listarTodosLancamentos(){
-        return lancamentoRepository.findAll(Sort.by("data_vencimento").ascending());
+        return lancamentoRepository.findAll(Sort.by("dataVencimento").ascending());
     }
 
     @GetMapping("/{id}")

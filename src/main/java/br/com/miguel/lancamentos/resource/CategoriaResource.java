@@ -52,7 +52,7 @@ public class CategoriaResource {
         categoriaRepository.deleteById(id);
     }
 
-
+    @PutMapping("/{id}")
     public ResponseEntity<Categoria> atualizar(@PathVariable Long id, @RequestBody Categoria categoria ){
         Categoria categoriaSalva = categoriaService.atualizar(id, categoria);
 
