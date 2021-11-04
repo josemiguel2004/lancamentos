@@ -3,6 +3,7 @@ package br.com.miguel.lancamentos.service;
 import br.com.miguel.lancamentos.model.Estado;
 import br.com.miguel.lancamentos.repository.EstadoRepository;
 import jdk.nashorn.internal.runtime.options.Option;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,14 @@ public class EstadoService {
     private EstadoRepository estadoRepository;
 
     public Estado salvar(Estado estado){return estadoRepository.save(estado); }
+
+    public Estado atualizar(Long id , Estado estado){
+        Estado estadoSalvo = buscarEstadoPorId(id);
+
+        BeanUtils.copyProperties(estado, estadoSalvo, "id");
+
+        return estadoRepository.save(estadoSalvo);
+    }
 
     public Estado buscarEstadoPorId (Long id){
         Optional<Estado> estadoSalvo = estadoRepository.findById(id);

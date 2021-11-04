@@ -47,5 +47,12 @@ public class LancamentoResource {
         lancamentoRepository.deleteById(id);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Lancamento> atualizar(@PathVariable Long id, @RequestBody Lancamento lancamento){
+        Lancamento lancamentoSalvo = lancamentoService.atualizar(id, lancamento);
+
+        return ResponseEntity.ok(lancamentoSalvo);
+    }
+
 
 }

@@ -44,4 +44,11 @@ public class EstadoResource {
     public void remover(@PathVariable Long id){
         estadoRepository.deleteById(id);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Estado> atualizar(@PathVariable Long id,@RequestBody Estado estado){
+        Estado estadoSalvo = estadoService.atualizar(id, estado);
+
+        return ResponseEntity.ok(estadoSalvo);
+    }
 }

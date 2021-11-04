@@ -44,4 +44,11 @@ public class PessoaResource {
 
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Pessoa> atualizar(@PathVariable Long id , @RequestBody Pessoa pessoa){
+        Pessoa pessoaSalva = pessoaService.atualizar(id, pessoa);
+
+        return ResponseEntity.ok(pessoaSalva);
+    }
+
 }
